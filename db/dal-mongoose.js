@@ -68,7 +68,7 @@ function updateOne(dbObject) {
 
         rtnVal = dbObject.model.updateOne({_id: dbObject.id}, dbObject.doc).exec()
     } else {
-        rtnVal = new Promise().reject("Could not Delete")
+        rtnVal = new Promise().reject("Could not update")
     }
 
     return rtnVal

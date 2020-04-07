@@ -24,4 +24,52 @@ router.get('/', function (req, res, next) {
 
 });
 
+/* POST - CREATE new project */
+router.post('/', function (req, res, next) {
+
+    let dbOjbect = new db.DbObject(textsModel, req.body)
+
+    db.create(dbOjbect)
+        .then(result => {
+
+            res.json(result)
+        })
+        .catch(error => {
+            console.log(error)
+            res.json(error)
+        })
+})
+
+// DELETE text
+router.delete('/:id', function (req, res, next) {
+
+    let dbObject = new db.DbObject(textsModel, null, req.params.id)
+
+    db.del(dbObject)
+        .then(result => {
+
+            res.json(result)
+        })
+        .catch(error => {
+            console.log(error)
+            res.json(error)
+        })
+})
+
+// Update - Patch a text by id
+router.patch('/:id', function (req, res, next) {
+
+    let dbObject = new db.DbObject(textsModel, req.body, req.params.id)
+
+    db.updateOne(dbObject)
+        .then(result => {
+            console.log(result)
+            res.json(result)
+        })
+        .catch(error => {
+            console.log(error)
+            res.json(error)
+        })
+})
+
 module.exports = router
