@@ -14,6 +14,7 @@ var usersRouter = require('./routes/users');
 const apiUsersRouter = require('./routes/api/v1/api-users')
 const apiAuthRouter = require('./routes/api/v1/api-auth')
 const apiProjectsRouter = require('./routes/api/v1/api-projects')
+const apiTextsRouter = require('./routes/api/v1/api-texts')
 
 /* Routes for other apps */
 const eventSchedulerApiEventsRouter = require('./routes/event-scheduler/api/v1/api-events')
@@ -48,6 +49,7 @@ db.connect()
     app.use('/api/v1/users', apiUsersRouter)
     app.use('/api/v1/auth', apiAuthRouter)
     app.use('/api/v1/projects', apiProjectsRouter)
+    app.use('/api/v1/texts', apiTextsRouter)
 
     /* for scheduler app */
     app.use('/scheduler/api/v1/events', eventSchedulerApiEventsRouter)
