@@ -46,20 +46,21 @@ db.connect()
     app.use(express.static(path.join(__dirname, 'react')));
 
     /* for the profile app */
-    
+
     app.use('/users', usersRouter);
     app.use('/api/v1/users', apiUsersRouter)
     app.use('/api/v1/auth', apiAuthRouter)
     app.use('/api/v1/projects', apiProjectsRouter)
     app.use('/api/v1/texts', apiTextsRouter)
 
+    /* for scheduler app */
+    app.use('/scheduler/api/v1/events', eventSchedulerApiEventsRouter)
+
+    // !!This goes after all other routes!!
     // here we direct users back to
     // index.html if they try to type in
     // an address in the url bar
     app.use('/', reactRouter)
-
-    /* for scheduler app */
-    app.use('/scheduler/api/v1/events', eventSchedulerApiEventsRouter)
 
     // catch 404 and forward to error handler
     app.use(function (req, res, next) {
