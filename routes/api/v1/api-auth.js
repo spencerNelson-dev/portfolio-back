@@ -64,9 +64,10 @@ router.post('/login', async function (req, res, next) {
         }
     } catch (error) {
         // if there was an error send the error
+        console.log(error)
         res.json(error)
     }
-
+    console.log(token)
     // Send back the token
     res.json(token)
 
