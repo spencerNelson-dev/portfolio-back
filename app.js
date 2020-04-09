@@ -15,6 +15,7 @@ const apiUsersRouter = require('./routes/api/v1/api-users')
 const apiAuthRouter = require('./routes/api/v1/api-auth')
 const apiProjectsRouter = require('./routes/api/v1/api-projects')
 const apiTextsRouter = require('./routes/api/v1/api-texts')
+const apiMessagesRouter = require('./routes/api/v1/api-messages')
 const reactRouter = require('./routes/react')
 
 /* Routes for other apps */
@@ -52,6 +53,7 @@ db.connect()
     app.use('/api/v1/auth', apiAuthRouter)
     app.use('/api/v1/projects', apiProjectsRouter)
     app.use('/api/v1/texts', apiTextsRouter)
+    app.use('/api/v1/messages', apiMessagesRouter)
 
     /* for scheduler app */
     app.use('/scheduler/api/v1/events', eventSchedulerApiEventsRouter)
