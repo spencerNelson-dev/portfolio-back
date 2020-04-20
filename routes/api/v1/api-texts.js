@@ -24,7 +24,7 @@ router.get('/', function (req, res, next) {
 
 });
 
-/* POST - CREATE new project */
+/* POST - CREATE new text */
 router.post('/', function (req, res, next) {
 
     let dbOjbect = new db.DbObject(textsModel, req.body)
@@ -57,7 +57,7 @@ router.delete('/:id', function (req, res, next) {
 })
 
 // Update - Patch a text by id
-router.patch('/:id', function (req, res, next) {
+router.patch('/:id', verifyBearerToken, function (req, res, next) {
 
     let dbObject = new db.DbObject(textsModel, req.body, req.params.id)
 

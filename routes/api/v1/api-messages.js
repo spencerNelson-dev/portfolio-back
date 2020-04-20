@@ -37,4 +37,19 @@ router.get('/', verifyBearerToken, function(req, res, next) {
     })
 })
 
+router.delete('/:id', verifyBearerToken, function(req, res, next) {
+
+    let dbObject = new db.DbObject(messagesModel, null, req.params.id)
+
+    db.del(dbObject)
+    .then(result => {
+        res.json(result)
+    })
+    .catch(error => {
+        console.log(error)
+        res.json(error)
+    })
+
+})
+
 module.exports = router;
