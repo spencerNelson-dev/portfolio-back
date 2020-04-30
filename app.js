@@ -44,6 +44,7 @@ db.connect()
     // })
 
     app.use('/public', express.static(path.join(__dirname, 'public')));
+    app.use('/change', express.static(path.join(__dirname, 'public/change')));
     app.use(express.static(path.join(__dirname, 'react')));
 
     /* for the profile app */
