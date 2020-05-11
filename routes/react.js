@@ -6,7 +6,7 @@ const path = require('path')
 /* Get resume */
 router.get('/resume', function(req, res, next) {
 
-  res.sendfile(path.join(__dirname, '/../public/docs/', 'Spencer_Nelson_Resume_2020_April.docx'))
+  res.sendfile(path.join(__dirname, '/../public/docs/', 'Spencer_Nelson_Resume_2020_May.pdf'))
 })
 
 /* GET home page. */
